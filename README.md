@@ -1,4 +1,5 @@
 # RU Healthy?
-Android-based health monitoring software
+Android-based health monitoring application
 
-Team members: Aymen F Al-Saadi, Tahiya Chowdhury,  Tina L Drew, George Koubbe, Himabindu Paruchuri and  Ramya Tadepalli
+Group #2
+Aymen F Al-Saadi, Tahiya Chowdhury,  Tina L Drew, George Koubbe, Himabindu Paruchuri and  Ramya Tadepalli
