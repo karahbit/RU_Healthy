@@ -1,0 +1,99 @@
+<!-- The code is based on the a class project at Rutgers University. 
+
+Project Title: RU Healthy?
+Class:  Software Engineering I   
+Course No: ECE567
+Professor: Ivan Marsic
+Semester: Fall 2017
+Website code developers: Tahiya Chowdhury and Tina Drew
+Group Participants: Aymen F Al-Saadi, Tahiya Chowdhury, Tina L Drew, 
+George Koubbe, Himabindu Paruchuri and Ramya Tadepalli  -->
+
+
+<!-- This code is copied from 
+https://www.roseindia.net/html/how-to-create-student-registration-form-with-html-code.shtml
+It has been modified by Tina -->
+
+<!-- The purpose of this page is to allow stakeholders (patients, personal trainers, etc.) 
+to register for the application services. It will also allows user to be redirected to the
+login page if they are already registered -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Register</title>
+
+		<script type="text/javascript" src="validate.js"></script>
+		<p align = "center"> 
+		<img src="RU Healthy Logo.jpg" alt="Smiley face" height = "100" width = "125">
+		<br><br>
+  </head>
+  
+  <body>
+  	<!-- <form action="#" name="RU Healthy? Registration" onSubmit="return(validate());">
+  	I am removing this section of code for now because I do not have the validation 
+  	criteria ready yet. This may be re-instated for future use. -->
+
+	<table cellpadding="2" width="20%" bgcolor="99FFFF" align="center" cellspacing="2">
+		<tr>
+		  <td colspan=2>
+		  <center><font size=4><b>RU Healthy Registration</b></font></center>
+		  </td>
+		</tr>
+		
+		<tr>
+		  <td>Name</td>
+		  <td><input type=text name=textnames id="textname" size="30"></td>
+		</tr>
+		
+		<tr>
+		  <td>Office Address</td>
+		  <td><input type="text" name="Office Address"
+		  id="OfficAddress" size="30"></td>
+		</tr>
+		
+		<tr>
+		  <td>Sex</td>
+		  <td><input type="radio" name="sex" value="male" size="10">Male
+		  <input type="radio" name="sex" value="Female" size="10">Female</td>
+		</tr>
+		
+		</tr>
+		  <td>User Type</td>
+		  <td><select name="User Type">
+		
+		  <option value="-1" selected>select..</option>
+		  <option value="Patient">Patient</option>
+		  <option value="Doctor">Doctor</option>
+		  <option value="Trainer">Trainer</option>
+		  <option value="Other">Other</option></select></td>
+		</tr>
+		
+		<tr> 
+		  	<td>EmailId</td>
+			 <td><input type="text" name="emailid" id="emailid" size="30"></td>
+		 </tr>
+		 
+		 <tr>
+		  <td>DOB</td>
+		  <td><input type="text" name="dob" id="dob" size="30"></td>
+		 </tr>
+		 
+		 <tr>
+		  <td>MobileNo</td>
+		  <td><input type="text" name="mobileno" id="mobileno" size="30"></td>
+		</tr>
+		
+		<tr>
+		  <td><input type="reset"></td>
+		  
+		  <td colspan="2">
+		  <form action="ProfilePageBlank.html"><input type="submit" value="Submit Form"></td></form>
+		</tr>
+  </table>
+ 
+ <br>
+
+ <p align ="center"> Already Registered!! <a href="Login.html">Login Here</a></p>
+</body>
