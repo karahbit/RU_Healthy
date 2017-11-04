@@ -25,6 +25,9 @@ In order to access the RU Healthy? android code, install the RU Healthy? App on 
 Please note that the program requires a Android API level 15 of (Codename: Ice Cream Sandwich, 
 version 4.0.3)  or above for proper installation. 
 
+OPERATION
+For operation instructions please refer to the user_docmenation.pdf file in the documents folder of the github repository. 
+
 FOLDER LAYOUT 
 
 The folder demo1 contains the android application.
@@ -81,6 +84,8 @@ Mozilla Firefox (version 56.0.2)
 Microsoft Edge (version 40.15063.674.0)
 Safari (version 5.1.7 (7534.57.2))
 
+OPERATION
+For operation instructions please refer to the user_docmenation.pdf file in the documents folder of the github repository. 
 
 FOLDER LAYOUT 
 
@@ -121,9 +126,6 @@ ProfilePageBlank.html
 RU Healthy Logo.jpg	 
 Register.html	
 Index.html 
-
-OPERATION
-For operation instructions please refer to the user_docmenation.pdf file in the documents folder of the github repository. 
 
 ACKNOWLEDGEMENTS
 
