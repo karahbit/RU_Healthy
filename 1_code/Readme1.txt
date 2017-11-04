@@ -1,3 +1,4 @@
+README1.TXT (CODING)
 
 GENERAL INFORMATION
 
@@ -8,11 +9,15 @@ Course No: ECE 567
 Professor: Ivan Marsic
 Semester: Fall 2017
 
+
 This project retrieves activity and heart rate information using Android phone sensors.  It displays this information to the user/patient on the android side.  The web application will allow clients to access this information via online SQL databases stored on the android locally. 
+
 
 AUTHORS
 Aymen F Al-Saadi, Tahiya Chowdhury, Tina Drew, 
 George Koubbe, Himabindu Paruchuri and Ramya Tadepalli
+
+
 
 ANDROID CODE
 
@@ -45,6 +50,7 @@ HeartRateMonitor: Initialize all necessary sensors - camera, wake screen, flash 
 ImageProcessing: Calculate Redness in camera images
 ---------------------------------------------------------------------------------------------------------------
 
+
 LAYOUT FILES:
 The folder demo1 also contains UI design files for the project.
 Path to Layout files: demo1\app\src\main\res\layout
@@ -57,6 +63,7 @@ profile: User Profile page
 step_count: Steps,miles,calorie counter page
 
 Some images are stored in the mipmap folders which are used in the Heart rate Monitor to calculate redness.
+
 
 
 WEBSITE CODE
@@ -80,7 +87,7 @@ The website can be accessed at the following link: https://ruhealthy.github.io/r
 
 -----------------------------------------------------------------------------------------------------------
 LOGIN
-The Register..html will allow access your account in the RU Healthy? Web application platform.  For now this page is a placebo and is not connected to the database.  It will be updated eventually to link the client SQL databases.
+The Login..html will allow access your account in the RU Healthy? Web application platform.  For now this page is a placebo and is not connected to the database.  It will be updated eventually to link the client SQL databases.
 ------------------------------------------------------------------------------------------------------------
 REGISTRATION
 The Register..html will allow to create an account in the RU Healthy? Web application platform.  For now this page is a placebo and is not connected to the database.  It will be updated eventually to link the client SQL database. 
@@ -88,8 +95,24 @@ The Register..html will allow to create an account in the RU Healthy? Web applic
 -------------------------------------------------------------------------------------------------------------
 VIEW PATIENT ACTIVITY
 The patient profile pages will allow access to patient summary information. For now there are three pages (Patient1.html, Patient2,html, and Patient3.html) which are placebos not connected to the database.  It will be updated eventually to link the client SQL database.  -------------------------------------------------------------------------------------------------------------
+ 
+PROFILE PAGE
+The profile page, will serve the main page for the patient or client. There are two profile pages (ProfilePage.html and ProfilePageBlank.html) which are samples of populated and unpopulated pages respectively. 
+-------------------------------------------------------------------------------------------------------------
 
+
+FILES:
+Login.html	 
+Patient1.html	
+Patient2.html	 
+Patient3.html	 
+ProfilePage.html	
+ProfilePageBlank.html	
+RU Healthy Logo.jpg	 
+Register.html	
+Index.html 
 
 ACKNOWLEDGEMENTS
 
 We would like to thank Professor Ivan Marsic for the opportunity to work on this project. We would also like to acknowledge Rutgers university for the access to the abundance of its resources.
+
