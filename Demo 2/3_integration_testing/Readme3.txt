@@ -56,6 +56,3 @@ We tested the login and registration functionality by creating user accounts and
 --------------------------------------------------------------------------------------------------------------------
 
 BUGS
-
-One of the bugs that we identified in the Android app is that when the submit button is selected in the profile page, the app stops working.  Since we are aware of the issue, we intend to fix for the next integration. 
-
