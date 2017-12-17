@@ -1,0 +1,117 @@
+<!-- The code is based on the a class project at Rutgers University. 
+Project Title: RU Healthy?
+Class:  Software Engineering I   
+Course No: ECE567
+Professor: Ivan Marsic
+Semester: Fall 2017
+Website code developers: Tina Drew
+Group Participants: Aymen F Al-Saadi, Tahiya Chowdhury, Tina L Drew, 
+George Koubbe, Himabindu Paruchuri and Ramya Tadepalli  -->
+
+<!-- The purpose of this page is to allow users to login to their account. -->
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #D03F2B;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+</style>
+</head>
+<body>
+   <title>Register</title>
+<ul>
+  <li><a href="Home.html" >Home</a></li>
+  <li><a href="ProfileUpdate.html">Profile</a></li>
+  <li><a href="Patient Information.html">Patient Info</a></li>
+  <li><a href="index.html">Logout</a></li>
+</ul>
+
+<br><p align = "center"> 
+<img align = "center" 
+ src="profile1.jpg" alt="Smiley face" height = 180 width = "250">
+<body bgcolor = "#C8C4C4">
+<br><br>
+      <body>
+       <form method="post" action="login.jsp">
+       <table border="1" width="25%" cellpadding="3"  align="center">
+       <thead> <tr> <th colspan="2">RU Healthy Registration</th>
+            
+            </tr> </thead> <tbody> 
+            </tr> <tr><td>Email:</td><td><input type ="text" name = "email" id = "email"/></td> 
+            </tr><tr><td> Password:</td><td><input type ="text" name = "password" id = "password"/></td>
+            </tr><tr><td> User ID:</td><td><input type ="text" name = "uid" id = "uid"/></td>
+		
+		                       		
+		<!-- </tr>
+		  </tr> <tr><td>First Name:</td><td><input type ="text" name = "nameFirst" id = "nameFirst"/></td> 
+           </tr> <tr><td>Last Name:</td><td><input type ="text" name = "nameLast" id = "nameLast"/></td> 
+		  </tr> <tr><td><input type="button" value="Test" onclick = 'test()' /></td>		 
+		  <td>User Type</td>
+		  <td><select name="User Type" id = "userType" >
+		  <option value="Physician">Physician</option>
+		  <option value="Patient">Patient</option>
+		  <option value="Trainer">Trainer</option>
+		  <option value="Admin">Admin</option>
+		  <option value="Other">Other</option>
+		  </select></td>
+		</tr> -->
+                         
+         </tr> <tr><td><input type="reset" value="Reset" /></td>
+         <td><input type = "button" value = "Register" 
+         onclick = "createUserAcct(email.value, password.value)"/></td>
+          </tr> <tr><td colspan="2">Not Registered Yet!! 
+          <a href="Login.html">Login Here</a></td></tr>
+          </tbody>
+          </table></form>
+    </body> 
+</html>
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+
+<script src="FirebaseConfig.js"> </script>
+
+<script src="LibraryCommon.js"> </script>
+<script src="PageMaker.js"> </script>
+<script src="FirebaseAuthentication.js"> </script>
+<script src="FirebaseAddUser.js"> </script>
+
+<script>
+function createUserAcct(email, password)
+{	
+	//window.alert('is this running');
+	register(email, password); 
+	setTimeout(function(){login(email, password);}, 500); 
+	setTimeout(function(){GetLoginStatus(updatePanel);}, 1500); 	
+}
+function updatePanel(email, id)
+{
+  	setTimeout(function(){
+  	document.getElementById("uid").value = id;}, 2000); 
+	
+  	//window.alert('see');
+	setTimeout(function(){addUser(email, id);}, 3000);
+}
+</script>
+</body>
+</html>

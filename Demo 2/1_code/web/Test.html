@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Test</title>
+
+<head></head>
+<body class="page_bg">
+Hello, today is <?php echo date('l, F jS, Y'); ?>.
+
+		
+		<tr><td><input type="reset"></td>
+		  
+		<td colspan="2">
+		<input type = "button" value = "Update Profile" onclick = 
+		"updateProf(uid.value)"
+			/>
+		<input type = "button" value = "Update GetID" onclick = "getDataSum()"/>
+		</tr>
+
+
+		<input type = "button" value = "Verify PHy Id" onclick = 
+		"verifyPhyID('DBN90pZfaUdxBqBkY8CVZAPxXET2', 'IpLI9SntEMeM03xJdkjMsEJlOFF2')"/>
+	
+		<input type = "button" value = "Get Activity" onclick = 
+		"getActivityInfo('7Owbl8fsHBMVeiKvUJxsilntE9C3')"/>
+	
+		<input type = "button" value = "output" onclick = "output()"/>
+		</tr>
+</body>
+</html>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+
+<script src="FirebaseConfig.js"> </script>
+
+<script>
+
+
+function output()
+{window.alert('testing out');}
+
+//modified from https://stackoverflow.com/questions/45835615/firebase-get-immediate-parent-of-a-child-with-specific-value 
+function verifyPhyID(patientID, phyID)
+{
+	//Find all patients with the specified patient ID		
+		var patPhyID = ' ';	
+	
+		var ref = firebase.database().ref("Patient/"+patientID+"/physician id");
+		ref.once("value", function(snapshot)  
+			 {	window.alert('hi');	
+			   	patPhyID = snapshot.val();
+			    window.alert(patPhyID); //Inserts the patient information into the array
+			   //patientList.push([data.key, nameFirst +' '+ nameLast]); //Inserts the patient information into the array
+			   //window.alert(patientList);
+			})
+			.then(function()
+				{window.alert('hi3');
+					if (phyID == patPhyID)
+					{window.alert('all good');}
+					else
+					{window.alert('This patient has not listed you as a physician');}
+				});
+		//return nameFirst, nameLast, nameMiddle, city, gender, insurance, mobileNum, officeNum, state, zip, email;
+		//Remove duplicates from the array.
+		//.then(function(){callback(patientList);});
+		
+}; 
+
+
+
+//modified from https://stackoverflow.com/questions/45835615/firebase-get-immediate-parent-of-a-child-with-specific-value 
+function getActivityInfo(patientID)
+{
+	//Find all patients with the specified patient ID		
+		var dataP = ' ';	
+	
+		var ref = firebase.database().ref("Patient/"+patientID+"/Recovery Time");
+		ref.once("value", function(snapshot)  
+			 {	window.alert('hi');	
+				dataP = snapshot.val(); 
+			    window.alert(dataP); //Inserts the patient information into the array
+			   //patientList.push([data.key, nameFirst +' '+ nameLast]); //Inserts the patient information into the array
+			   //window.alert(patientList);
+			})
+			.then(function()
+				{
+				
+				});
+		//return nameFirst, nameLast, nameMiddle, city, gender, insurance, mobileNum, officeNum, state, zip, email;
+		//Remove duplicates from the array.
+		//.then(function(){callback(patientList);});
+		
+}; 
+
+
+
+
+
+//modified from https://stackoverflow.com/questions/45835615/firebase-get-immediate-parent-of-a-child-with-specific-value 
+function getDataSum(ID)
+{	//window.alert('hi');	
+	//Find all patients with the specified patient ID		
+		//patientList = [,]; 
+		//patientList.push(['ID','NAME']); 
+		var nameFirst;
+		var nameLast; 
+		var nameMiddle; 
+		var city;
+		var gender; 
+		var insurance; 
+		var mobileNum; 
+		var officeNum;
+		var address;
+		var state;
+		var zip; 
+		var email; 
+		var ref = firebase.database().ref("Patient");
+		ref.orderByChild('id').equalTo(ID).once("value", function(snapshot) 
+		{	  
+		   snapshot.forEach(function(data) 
+			 {
+			   	nameMiddle = data.child("middle name").val();
+			 	city = data.child("city").val();
+				gender = data.child("gender").val(); 
+				insurance = data.child("insurance").val(); 
+				mobileNum = data.child("mobile number").val();
+				officeNum = data.child("office number").val();
+				address = data.child("office address").val();
+				state = data.child("state").val();
+				zip = data.child("zipcode").val();
+				email = data.child("email").val();
+			   
+			  // window.alert(nameFirst + nameLast); //Inserts the patient information into the array
+			   //patientList.push([data.key, nameFirst +' '+ nameLast]); //Inserts the patient information into the array
+			   //window.alert(patientList);
+			 }); 
+		}).then(function()
+		{
+
+		});
+			//return nameFirst, nameLast, nameMiddle, city, gender, insurance, mobileNum, officeNum, state, zip, email;
+		//Remove duplicates from the array.
+		//.then(function(){callback(patientList);});
+		
+}; 
+
+function testing()
+{
+	ref.child('Patient').orderByChild('physican id').equalTo('IpLI9SntEMeM03xJdkjMsEJlOFF2').on("value", function(snapshot) {
+	    console.log(snapshot.val());
+	    snapshot.forEach(function(data) {
+	        window.alert(data.key);
+	    });
+	});
+
+}
+//modified from https://stackoverflow.com/questions/45835615/firebase-get-immediate-parent-of-a-child-with-specific-value 
+
+function findPatient()
+{	window.alert('hi');	
+	//Find all patients with the specified patient ID		
+		var ref = firebase.database().ref("Patient").child('smgJeeqXPsTEkPgjfOCsxklfuVq2');
+		ref.orderByKey().once("value", function(snapshot) 
+		{	  
+		   snapshot.forEach(function(data) 
+			 {
+			   nameFirst = data.child("first name").val(); //Stores the patient name to the variable nameFirst.
+			   nameLast = data.child("last name").val(); //Stores the patient name to the variable nameFirst.
+			   window.alert(nameFirst + nameLast); //Inserts the patient information into the array
+			   //window.alert(patientList);
+			 }); 
+		});
+		//.then(function(){removeDuplicates(patientList);});//Remove duplicates from the array.
+	
+}; 
+
+
+//modified from https://stackoverflow.com/questions/45835615/firebase-get-immediate-parent-of-a-child-with-specific-value 
+function patientSearch(phyID)
+{	//window.alert('hi');	
+	//Find all patients with the specified patient ID		
+		patientList = [,]; 
+		//patientList.push(['ID','NAME']); 
+		var nameFirst;
+		var nameLast; 
+		var ref = firebase.database().ref("Patient");
+		ref.orderByKey().equalTo(phyID).once("value", function(snapshot) 
+		{	  
+		   snapshot.forEach(function(data) 
+			 {
+			   nameFirst = data.child("first name").val(); //Stores the patient name to the variable nameFirst.
+			   nameLast = data.child("last name").val(); //Stores the patient name to the variable nameFirst.
+			   patientList.push([data.key, nameFirst +' '+ nameLast]); //Inserts the patient information into the array
+			   //window.alert(patientList);
+			 }); 
+		});
+	
+}; 
+
+
+
+</script>
+
+</body>
+</html>

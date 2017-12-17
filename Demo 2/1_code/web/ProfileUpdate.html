@@ -1,0 +1,202 @@
+<!-- The code is based on the a class project at Rutgers University. 
+Project Title: RU Healthy?
+Class:  Software Engineering I   
+Course No: ECE567
+Professor: Ivan Marsic
+Semester: Fall 2017
+Website code developers: Tina Drew
+Group Participants: Aymen F Al-Saadi, Tahiya Chowdhury, Tina L Drew, 
+George Koubbe, Himabindu Paruchuri and Ramya Tadepalli  -->
+
+
+<!-- The purpose of this page is to allow stakeholders (patients, personal trainers, etc.) 
+to register for the application services. It will also allows user to be redirected to the
+login page if they are already registered -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #D03F2B;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+</style>
+</head>
+<body>
+   <title>Profile Page</title>
+<ul>
+  <li><a href="Home.html" >Home</a></li>
+  <li><a href="ProfileUpdate.html">Profile</a></li>
+  <li><a href="Patient Information.html">Patient Info</a></li>
+  <li><a href="index.html">Logout</a></li>
+</ul>
+
+<br><p align = "center"> 
+<img align = "center" 
+ src="profile1.jpg" alt="Smiley face" height = 180 width = "250">
+<body bgcolor = "#C8C4C4">
+<br><br>
+  <body onload="updateInfo();">
+	<table cellpadding="2" width="35%" align="center" cellspacing="2">
+		<tr>
+		  <td colspan=2>
+		  <center><font size=4><b>Profile Information</b></font></center>
+		  </td>
+		</tr>
+		<tr><td> First Name:</td><td><input type ="text" name = "nameFirst" id = "nameFirst" size="35"></td></tr>
+		<tr><td> Last Name:</td><td><input type ="text" name = "nameLast" id = "nameLast" size="35"></td></tr>
+		<tr><td> Middle Name:</td><td><input type ="text" name = "nameMiddle" id = "nameMiddle" size="35"></td></tr>	
+		<tr><td> Office Address:</td><td><input type ="text" name = "officeAddress" id = "officeAddress" size="35"></td></tr>
+		<tr><td> City:</td><td><input type ="text" name = "officeCity" id = "officeCity" size="35"></td></tr>
+		<tr><td> State:</td><td><input type ="text" name = "officeState" id = "officeState" size="35"></td></tr>
+		<tr><td> Zipcode:</td><td><input type ="text" name = "officeZip" id = "officeZip" size="35"></td></tr>
+		<tr><td>Office Number</td><td><input type="number" name="numOffice" id="numOffice" size="35"></td></tr>
+		<tr><td>Mobile Number</td><td><input type="number" name="numMobile" id="numMobile" size="35"></td></tr>
+		<tr><td> Insurance:</td><td><input type ="text" name = "insurance" id = "insurance" size="35"></td></tr>
+		<tr><td> Email:</td><td><input type ="text" name = "email" id = "email" size="35"></td></tr>
+		<tr><td> User ID:</td><td><input type ="text" name = "uid" id = "uid" size="35"></td></tr>
+				
+		</tr>
+		  <td>Gender</td>
+		  <td><select name="gender" id = "gender" >
+		  <option value="" selected>select..</option>
+		  <option value="Male">Male</option>
+		  <option value="Female">Female</option>
+		  </tr>
+		
+		<tr><td><input type="reset"></td>
+		  
+		<td colspan="2">
+		<input type = "button" value = "Update Profile" onclick = "updateProf(uid.value) "/>
+		<!-- <input type = "button" value = "Update GetID" onclick = "updateInfo()"/> -->
+		</tr>  
+  </table>
+ <br>
+
+	<!--<center><input type = "button" value = "Populate" onclick = "getDataSum('smgJeeqXPsTEkPgjfOCsxklfuVq2')"/></center> -->
+
+</body>
+</html>
+
+<script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+
+<script src="FirebaseConfig.js"> </script>
+<script src="FirebaseUpdateProfile.js"> </script>
+<script src="FirebaseOperationsUser.js"> </script>
+
+<script src="LibraryCommon.js"> </script>
+<script src="PageMaker.js"> </script>
+<script src="FirebaseAuthentication.js"> </script>
+<script src="FirebaseAddUser.js"> </script>
+<script src="PatientSearcher.js"> </script>
+
+
+<script>
+function updateInfo()
+{
+	//window.alert('is this running');
+	
+	setTimeout(function(){GetLoginStatus(updatePanel);}, 1500);
+}
+
+
+function updatePanel(email, id)
+{
+  	setTimeout(function(){
+  	document.getElementById("uid").value = id;}, 2000); 
+	
+}
+
+
+
+
+
+//modified from https://stackoverflow.com/questions/45835615/firebase-get-immediate-parent-of-a-child-with-specific-value 
+function getDataSum(ID)
+{	//window.alert('hi');	
+	//Find all patients with the specified patient ID		
+		//patientList = [,]; 
+		//patientList.push(['ID','NAME']); 
+		var nameFirst;
+		var nameLast; 
+		var nameMiddle; 
+		var city;
+		var gender; 
+		var insurance; 
+		var mobileNum; 
+		var officeNum;
+		var address;
+		var state;
+		var zip; 
+		var email; 
+		var ref = firebase.database().ref("Physician");
+		ref.orderByChild('id').equalTo(ID).once("value", function(snapshot) 
+		{	  
+		   snapshot.forEach(function(data) 
+			 {
+			   nameFirst = data.child("first name").val(); //Stores the patient name to the variable nameFirst.
+			   nameLast = data.child("last name").val(); //Stores the patient name to the variable nameFirst.
+			   nameMiddle = data.child("middle name").val();
+			 	city = data.child("city").val();
+				gender = data.child("gender").val(); 
+				insurance = data.child("insurance").val(); 
+				mobileNum = data.child("mobile number").val();
+				officeNum = data.child("office number").val();
+				address = data.child("office address").val();
+				state = data.child("state").val();
+				zip = data.child("zipcode").val();
+				email = data.child("email").val();
+			   
+			  // window.alert(nameFirst + nameLast); //Inserts the patient information into the array
+			   //patientList.push([data.key, nameFirst +' '+ nameLast]); //Inserts the patient information into the array
+			   //window.alert(patientList);
+			 }); 
+		}).then(function()
+		{
+		
+		  	document.getElementById("nameFirst").value = nameFirst;
+		  	document.getElementById("nameLast").value = nameLast;
+		  	document.getElementById("nameMiddle").value = nameMiddle;
+		  	document.getElementById("officeCity").value = city;
+		  	document.getElementById("gender").value = gender;
+		  	document.getElementById("insurance").value = insurance;
+		  	document.getElementById("numMobile").value = mobileNum;
+		  	document.getElementById("numOffice").value = officeNum;
+		  	document.getElementById("officeState" ).value = state;
+		  	document.getElementById("officeZip").value = zip;
+		  	document.getElementById("officeAddress").value = address;
+		  	document.getElementById("email").value = email;
+			document.getElementById("uid").value = ID;
+
+		});
+			//return nameFirst, nameLast, nameMiddle, city, gender, insurance, mobileNum, officeNum, state, zip, email;
+		//Remove duplicates from the array.
+		//.then(function(){callback(patientList);});
+		
+}; 
+
+
+</script>
+</body>
+</html>
