@@ -2,8 +2,8 @@
 WEBSITE CODE
 
 INSTALLATION
-No installation is required for the RU Healthy web application.  Simply go to https://ruhealthy.github.io/ruhealthy/
-to access the application. 
+No installation is required for the RU Healthy web application.  
+Simply go to https://ruhealthy.github.io/ruhealthy to access the application. 
 
 OPERATION
 For operation instructions please refer to the user_docmenation.pdf file in the documents folder of the GitHub repository. 
