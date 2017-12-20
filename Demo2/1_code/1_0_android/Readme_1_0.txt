@@ -1,7 +1,12 @@
 ANDROID CODE
 
 INSTALLATION
-In order to access the RU Healthy? android code, install the RU Healthy? App on your phone. 
+In order to access the RU Healthy? android code, install ile RU Healthy? App on your phone by following 
+the steps bwlow:
+1) Download the RU Healthy.apk file in this folder. 
+2) Open the file from your mobile device
+3) Follow the on screen instructions for installations. 
+ 
 Please note that the program requires a Android API level 15 of (Codename: Ice Cream Sandwich, 
 version 4.0.3)  or above for proper installation. 
 
@@ -9,8 +14,10 @@ OPERATION
 For operation instructions please refer to the user_docmenation.pdf file in the documents folder of the github repository. 
 
 FOLDER LAYOUT 
+The RU Healthy.apk file is used to install the RU Healthy app as an executatble on your phone. 
 
-The folder contains the android application.
+The SoftwareEngineering.zip folder contains all the files for the Android code. This folder 
+contains the android application. 
 The Java files are available at this path :  demo1\app\src\main\java\com\example\himabindu\demo1
 
 We are using Firebase Cloud Database for storing the Physician and Patient data and User authentication purposes.
