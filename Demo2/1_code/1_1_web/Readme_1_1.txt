@@ -1,15 +1,29 @@
 WEBSITE CODE
 
+
+FOLDER LAYOUT 
+The  RUHealthyWebCode.zip folder contains all html, JavaScript, and picture files required to run 
+the RU Healthy web application. 
+
 INSTALLATION
 No installation is required for the RU Healthy web application.  
 Simply go to https://ruhealthy.github.io/ruhealthy to access the application. 
 
 OPERATION
-For operation instructions please refer to the user_docmenation.pdf file in the documents folder of the GitHub repository. 
+For operation instructions please refer to the user_docmenation.pdf file in the documents folder of 
+the GitHub repository. 
 
-FOLDER LAYOUT 
-The folder contain all html, JavaScript, and picture files required to run the RU Healthy web application. 
------------------------------------------------------------------------------------------------------------
+FUNCTIONAILITY VERIFICATION
+To verify full functionality of the web appliation
+1) https://ruhealthy.github.io/ruhealthy to access the application. 
+2) Select "Login"
+3) Login using the following credentials:
+  Email: john@this.com
+  Password: password
+4) Follow the steps in the he user_docmenation.pdf in the documents folder for more instructions
+
+WEBSITE INTERNAL FILES
+-----------------------------------------------------------------------------------------------------------------
 INDEX.HTML
 This page serves as the initial interface into the RU Healthy system. Here the user can access links to the 
 Login.html and Register.html pages. 
